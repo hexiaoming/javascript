@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>javascript 小闹钟实例</title>
+ </head>
+ <body>
+  小闹钟：<span id = "clock"></span>
+  <script type = "text/javascript">
+  // 取得span标签的dom对象
+   var clock_obj = document.getElementById("clock");
+   var time_now;
+   var count = 0;
+   function showTime()
+   {
+   time_now = new Date();
+   time_now = time_now.toLocaleTimeString();
+   clock_obj.innerHTML = time_now;
+   count++;
+   //为什么10后面不放冒号呢？
+   if (count == 10)
+   {
+	   alert("可以停止了");
+	   window.clearInterval(timer_id);
+   }
+   }
+   //为什么调用函数要加双引号呢？？？
+   var timer_id = window.setInterval("showTime()",1000);
+  </script>
+ </body>
+</html>
